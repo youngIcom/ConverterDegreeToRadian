@@ -42,10 +42,6 @@ Aplikasi desktop untuk mengkonversi file motion Lua dari derajat ke radian secar
 
 File hasil konversi akan berisi data motion Lua dengan sudut dalam satuan radian.
 
-## Lisensi
-
-MIT License
-
 ---
 
 **Dibuat oleh Yesaya | youngIcom**
