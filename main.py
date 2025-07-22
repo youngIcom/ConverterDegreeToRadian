@@ -133,8 +133,8 @@ class ConverterApp:
                 raise ValueError("Format tidak sesuai. Tidak ada data 'angles' atau 'duration' yang ditemukan.")
             with open(self.output_path.get(), "w") as outfile:
                 outfile.write("-- File ini dihasilkan oleh Premium Lua Motion Converter\n")
-                outfile.write("local mot = {};\n\n")
-                outfile.write("mot.keyframes = {\n")
+                outfile.write("local mot={};\nmot.servos={13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,};\nmot.keyframes = {\n")
+
 
                 # rumus konversi dari derajat ke radian dimuat disini
                 for frame in frames:
@@ -143,7 +143,7 @@ class ConverterApp:
                     angles_in_radians = [angle * math.pi / 180 for angle in angles_in_degrees]
                     output_string = f"  {{\n    {duration}, -- duration\n{self._table_to_string(angles_in_radians)}\n  }},"
                     outfile.write(output_string + "\n")
-                outfile.write("}\n\nreturn mot\n")
+                outfile.write("}\n\nreturn mot;\n")
             self.log("KONVERSI BERHASIL!", "sukses")
             self.root.after(100, lambda: messagebox.showinfo("Sukses", "Konversi file berhasil diselesaikan!"))
         except Exception as e:
